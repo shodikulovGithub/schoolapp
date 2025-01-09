@@ -1,0 +1,10 @@
+.school-item {
+    list-style:none;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.school-item:last-child {
+    border-bottom: none;
+
+}
