@@ -4,14 +4,17 @@ import './school-item.css'
 
 type SchoolItemProps = {
     school: SchoolData
+    selectSchool: (school: SchoolData) => void
 }
 
 export const SchoolItem = ({
-    school
+    school,
+    selectSchool
 }: SchoolItemProps) => {
     return(
-    <tr>
+        <tr>
         <td>{school.name}</td>
         <td>{school.average_student_gpa}</td>
-    </tr>
+        <td><button onClick={() => selectSchool(school)}>Details</button></td>
+        </tr>
 )}
