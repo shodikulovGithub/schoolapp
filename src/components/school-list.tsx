@@ -35,8 +35,11 @@ export const useSchoolData = () => {
 
 export const SchoolList = () => {
     const { schools, setSortColumn, setAscending, ascending } = useSchoolData()
+    const [selectedSchool, selectSchool] = useState<SchoolData | null>(null)
 
     return (
+        <>
+        {selectedSchool != null ? <SchoolDetail school = {selectSchool} /> : null}
         <table>
             <thead>
                 <tr>
@@ -47,12 +50,14 @@ export const SchoolList = () => {
                             setAscending(!ascending)
                         }}>Avg GPA {ascending? '▲' : '▼'}</th>
                 </tr>
+                <th>Details</th>
             </thead>
             <tbody>
                 {schools.map((school) => {
-                    return <SchoolItem key={school.name} school={school} />
+                    return <SchoolItem key={school.name} school={school} selectSchool = {selectSchool} />
                 })}
             </tbody>
         </table>
+        </>
     )
 }
